@@ -1,0 +1,188 @@
+.menu {
+  border: 1px solid black;
+  transition: 0.3s;
+}
+
+.menu_wrapper {
+  flex: 0 0 280px;
+  z-index: 10;
+}
+
+.analytics_wrapper {
+  flex: 0 1 1100px;
+  overflow-y: scroll;
+}
+.analytics_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 30px minmax(140px, 0.2fr) minmax(379px, 0.5fr) minmax(
+      266px,
+      0.3fr
+    );
+}
+
+.analytics_wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  grid-column: 1/-1;
+}
+.revenue,
+.transactions,
+.likes,
+.users {
+  grid-row: 2 / span 1;
+}
+.activities {
+  grid-column: 1/-1;
+}
+.products {
+  grid-column: 1 / span 2;
+}
+.schedule {
+  grid-column: 3 / span 2;
+}
+
+.statistic_card {
+  padding: 25px;
+  gap: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.statistic_card > :first-child {
+  display: flex;
+  justify-content: flex-end;
+}
+.statistic_card > :last-child {
+  font-size: 28px;
+  font-weight: bold;
+}
+.linechart {
+  /* transform: scale(0.9); */
+  width: 87%;
+}
+
+@media screen and (min-width: 1640px) {
+  .analytics_wrapper {
+    flex: 1 1 1100px;
+  }
+  .analytics_container {
+    grid-template-rows:
+      30px minmax(140px, 0.2fr) minmax(100px, 0.5fr) minmax(100px, 0.5fr)
+      minmax(230px, 0.5fr);
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .revenue {
+    grid-column: 1/3;
+  }
+  .transactions {
+    grid-column: 3/5;
+  }
+  .likes {
+    grid-column: 5/7;
+  }
+  .users {
+    grid-column: 7/9;
+  }
+  .activities {
+    grid-row: 3/5;
+    grid-column: 1 / span 5;
+  }
+  .products {
+    grid-row: 5/7;
+    grid-column: 1/4;
+  }
+  .schedule {
+    grid-row: 5/7;
+    grid-column: 4/7;
+  }
+}
+
+@media screen and (max-width: 1276px) {
+  .analytics_container {
+    grid-template-rows:
+      30px minmax(140px, 0.2fr) minmax(140px, 0.2fr) minmax(379px, 0.5fr)
+      minmax(266px, 0.3fr) minmax(266px, 0.3fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .statistic_card {
+    padding: 20px 40px;
+  }
+
+  .revenue {
+    grid-column: 1 / span 1;
+    grid-row: 2/3;
+  }
+  .transactions {
+    grid-column: 2 / span 1;
+    grid-row: 2/3;
+  }
+  .likes {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  .users {
+    grid-column: 2/-1;
+    grid-row: 3/4;
+  }
+  .activities {
+    grid-row: 4 / span 1;
+    grid-column: 1/-1;
+  }
+
+  .schedule {
+    grid-column: 5 / span 1;
+    grid-column: 1/-1;
+  }
+  .products {
+    grid-column: 1/ -1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .analytics_container {
+    grid-template-rows:
+      30px minmax(140px, 0.2fr) minmax(140px, 0.2fr) minmax(300px, 0.5fr)
+      minmax(266px, 0.3fr) minmax(266px, 0.3fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .menu_wrapper {
+    flex: 0;
+    width: 0;
+  }
+  .menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-radius: 0 15px 15px 0;
+    width: 250px;
+  }
+  .analytics_container {
+    grid-template-rows:
+      30px minmax(140px, 0.2fr) minmax(140px, 0.2fr) minmax(300px, 0.5fr)
+      minmax(266px, 0.3fr) minmax(266px, 0.3fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .analytics_container {
+    grid-template-rows:
+      30px minmax(140px, 0.2fr) minmax(140px, 0.2fr) minmax(250px, 0.5fr)
+      minmax(266px, 0.3fr) minmax(266px, 0.3fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .analytics_container {
+    display: block;
+  }
+  .analytics_container > div {
+    margin-bottom: 30px;
+  }
+}
