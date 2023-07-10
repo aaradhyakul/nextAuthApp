@@ -19,6 +19,11 @@ export default function Home() {
       signIn("github");
     };
   };
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard");
+    }
+  }, [status]);
 
   if (!(status == "authenticated")) {
     return (
@@ -44,16 +49,20 @@ export default function Home() {
             <div className={`text-base`}>Sign in to your account</div>
             <div className={`flex gap-x-[20px] mb-[8px]`}>
               <Link
-                href="/api/auth/signin"
-                onClick={googleHandler}
+                href="/"
+                onClick={() => {
+                  signIn("google");
+                }}
                 className={`bg-white px-[15px] py-[5px] text-mid rounded-lg text-[#858585] flex-auto flex items-center justify-center gap-x-[12px] tracking-[0.2px]`}
               >
                 <img width="14px" src="/static/google.png" />
                 Sign in with google
               </Link>
               <Link
-                href="/api/auth/signin"
-                onClick={gitHubHandler}
+                href="/"
+                onClick={() => {
+                  signIn("github");
+                }}
                 className={`bg-white px-[15px] py-[5px] text-mid rounded-lg text-[#858585] flex-auto flex items-center justify-center gap-x-[12px] tracking-[0.2px]`}
               >
                 <img width="14px" src="/static/github.png" />
@@ -103,7 +112,5 @@ export default function Home() {
         </div>
       </div>
     );
-  } else {
-    router.push("/dashboard");
   }
 }
