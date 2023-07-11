@@ -1,15 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../styles/Dashboard.module.css";
-import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import Profile from "@/components/Profile";
 
 function Navbar({ openMenu }) {
-  const router = useRouter();
-
-  const signOutHandler = () => {
-    signOut();
-    router.push("/");
+  const [profileOpen, setProfileOpen] = useState("profileClosed");
+  const profileHandler = (status) => {
+    setProfileOpen(status);
   };
 
   return (
@@ -41,7 +38,16 @@ function Navbar({ openMenu }) {
           />
         </div>
         <img src="/static/bell.png" width="20px" />
-        <img src="/static/gamer.png" width="22px" onClick={signOutHandler} />
+        <div className="relative">
+          <img
+            src="/static/gamer.png"
+            width="22px"
+            onClick={() => {
+              profileHandler("profileOpen");
+            }}
+          />
+          <Profile profileOpen={profileOpen} profileHandler={profileHandler} />
+        </div>
       </div>
     </div>
   );

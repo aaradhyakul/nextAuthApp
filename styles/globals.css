@@ -12,6 +12,18 @@
   list-style: none;
   outline: none;
 }
+body {
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.profile-cont {
+  box-shadow: -1px 0px 10px 0px rgba(0, 0, 0, 0.162);
+  /* border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; */
+  /* border-radius: 10px; */
+  transition: 0.2s;
+}
 
 @media screen and (max-width: 900px) {
   .closemenu {
