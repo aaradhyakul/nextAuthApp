@@ -25,6 +25,11 @@ export default function Home() {
     }
   }, [status]);
 
+  //prefetch the dashboard
+  useEffect(() => {
+    router.prefetch("/dashboard");
+  }, [router]);
+
   const githubImgRef = useRef();
   const googleImgRef = useRef();
 
